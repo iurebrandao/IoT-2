@@ -9,6 +9,22 @@ services:
       networks:
         - my_net
 
+  actuator:
+    container_name: actuator
+    restart: unless-stopped
+    build:
+      context: actuator/
+      dockerfile: Dockerfile
+    volumes:
+      - './actuator/:/app'
+      - '/app/node_modules'
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=development
+    networks:
+      - my_net
+
 networks:
   my_net:
     driver: bridge
