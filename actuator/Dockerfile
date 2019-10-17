@@ -1,4 +1,4 @@
-# base image
+# base image (iurebrandao/actuator-iot:1.0.1)
 FROM node:12.2.0
 
 # set working directory
@@ -8,7 +8,7 @@ WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 
 # install and cache app dependencies
-COPY package.json /app/package.json
+COPY . /app/
 RUN npm install --silent
 
 # start app
