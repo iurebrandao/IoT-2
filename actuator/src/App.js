@@ -66,10 +66,14 @@ class App extends Component {
                   (<p>loading...</p>) :
                   (
                       <p>
-                        {this.state.connected ? ('Connected!'): ('It was not able to connect')}
+                        {this.state.connected ? ('Connected to broker!'): ('It was not able to connect')}
                       </p>
                   )
             }
+            <br/>
+            <br/>
+            <br/>
+            <br/>
             {
               this.state.connected ?
                   (
