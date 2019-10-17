@@ -17,8 +17,8 @@ class App extends Component {
 
   componentDidMount(){
     let options={
-      clientId:"iure",
-      username:"iure",
+      clientId:"actuator",
+      username:"actuator",
       password:"mosquitto"
     };
 
@@ -42,11 +42,11 @@ class App extends Component {
 
   onConnectionLost(){
     console.log('deu ruim');
-    this.setState({loading: false});
+    this.setState({loading: false, connected: false});
   }
 
   onMessage (topic, message) {
-    console.log(topic);
+    console.log(topic, message.toString());
     let lampOn = message.toString();
     if (lampOn === 'True'){
       lampOn = true;

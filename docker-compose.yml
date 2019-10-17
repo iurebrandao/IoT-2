@@ -25,6 +25,22 @@ services:
     networks:
       - my_net
 
+  application:
+    container_name: application
+    restart: unless-stopped
+    build:
+      context: application/
+      dockerfile: Dockerfile
+    volumes:
+      - './application/:/app'
+      - '/app/node_modules'
+    ports:
+      - '3001:3000'
+    environment:
+      - NODE_ENV=development
+    networks:
+      - my_net
+
 networks:
   my_net:
     driver: bridge
